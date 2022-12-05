@@ -184,7 +184,7 @@
 		font-weight: 400;
 		text-align:center;
 		transition: 0.1s
-
+		padding: 20px 0px;
 	}
 
 	.title:hover {
