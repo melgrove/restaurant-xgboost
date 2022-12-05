@@ -11,10 +11,19 @@
 		url: ""
 	};
 
-	let ROOT_URL = "https://xgboost-restaurant.uw.r.appspot.com/?q="
+	let ROOT_URL = "https://xgboost-restaurant.uw.r.appspot.com/?q=";
+	
+	function handleKeyPress(e, q){
+		let key=e.keyCode || e.which;
+			if (key==13){
+				search(q);
+			}
+		}
 
 	async function search(q) {
+		if(q.length === 0) return;
 		isSearching = true;
+		isError = false;
 		results = [];
 		for(let i = 0; i < 10; i++) {
 			results.push(loadingObj)
@@ -70,10 +79,10 @@
 		{/if}
 	</div>
 	<div class="title">
-		Restaurant Search Engine
+		Probabilistic Restaurant Search Engine
 	</div>
 	<div class="search-bar">
-		<input type="text" bind:value={query} {placeholder}>
+		<input type="text" bind:value={query} {placeholder} on:keypress={e => handleKeyPress(e, query)}>
 		<button disabled={isSearching} on:click={() => search(query)}>Search</button>
 	</div>
 	{#if results.length > 0 && !isError}
@@ -173,7 +182,7 @@
 		font-size: 24px;
 		margin-bottom: 20px;
 		font-weight: 400;
-		text-align:justify;
+		text-align:center;
 		transition: 0.1s
 
 	}
