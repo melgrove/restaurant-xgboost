@@ -50,7 +50,7 @@
 </script>
 
 <svelte:head>
-	<title>Restaurant Search Engine</title>
+	<title>Probabilistic Restaurant Search Engine</title>
 	<meta name="description" content="Restaurant Recommendation" />
 </svelte:head>
 
